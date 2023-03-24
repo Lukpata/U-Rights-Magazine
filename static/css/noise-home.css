@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;	
+}
+
+.noise-wrapper{
+	position: relative;	
+	padding-left: 12%;
+	padding-right: 12%;
+	padding-top: 2.5em;
+}
+
+.noise-wrapper::before{
+	content: '';
+	height: 100%;
+	background-color: rgb(240, 235, 232);
+	width: 10%;
+	display: block;
+	position: absolute;	
+	left: 0;
+	top: 0;
+	box-shadow: 0px 0px 5px black;
+}
+
+.noise-wrapper::after{
+	content: '';
+	height: 100%;
+	background-color: rgb(240, 235, 232);
+	width: 10%;
+	display: block;
+	position: absolute;	
+	right:0;
+	top: 0;
+	box-shadow: 1px 0px 5px black;
+}
+
+.noise-title{
+	color: black;
+	text-align: center;
+	font-family: Georgia,Arial,serif;
+}
+
+.noise-title .first-two{
+	color: #70AB65;
+}
+
+.noise-title .second-three{
+	font-family: 'Comic sans MS',Georgia,serif;
+}
+
+.noise-title .bi{
+	font-family: 'Comic Sans MS'
+}
+
+.noise-wrapper .issue-number{
+	color:rgb(51, 51, 51);
+	margin-top: 80px;
+	font-family: 'Roboto';
+	font-weight: 400;
+	font-size: 2em;
+	outline-color: rgb(51, 51, 51);
+}
+
+.noise-wrapper .noise-date{
+	padding-top: 1.7em;
+	font-family: Georgia,Arial,sans;
+	color: rgb(153, 153, 153);
+}
+
+.noise-grid{
+	margin-top: 20px;
+	display: grid;
+	grid-template-columns: 4fr 1fr;
+}
+
+.noise-grid .main-content{
+	padding:0.1em;
+}
+
+.issues-outline{
+	padding-left: 0.8em;
+}
+.noise-issues{
+	padding-left: 0.8em;
+	padding-top: 0.8em;
+	box-shadow: -2px -2px 2px grey;
+	overflow-y:scroll;
+}
+
+.noise-issues li{
+	list-style-type: none;
+	line-height: 1.3em;
+	
+}
+
+.noise-issues li a{
+	text-decoration: none;
+	color: #222;
+	font-family: calibri,Georgia,Arial;
+}
+
+.noise-issues .all-issues{
+	margin-top: 30px;
+}
+.noise-issues .recent{
+	margin-top: 30px;
+}
+
+.noise-issues h4{
+	padding-bottom: 0.5em;
+}
+
+.main-content .noise-issue-image{
+	width: 90%;
+	height: 50vh;
+	box-shadow: 0px 0px 5px black;
+	background-image: url('../images/elijah-hiett-f0huI7_HjWw-unsplash.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.issue-number span{
+	font-family: 'Courier New'
+} 
+
+.main-content .attribution{
+	display: block;
+	text-align: left;
+	margin-top: 1.2em;
+	font-size: 0.9em;
+	color:rgb(153, 153, 153);
+}
+
+.main-content .author-list{
+	margin-top: 30px;
+}
+
+.author-list .content{
+	color:rgb(51, 51, 51);
+	font-weight: 400;
+	line-height: 28.8px;
+	margin-bottom: 24px;
+}
+
+.author-list .poems a{
+	color:rgb(119, 119, 119);
+	text-decoration: none;
+	line-height: 24px;
+	font-family: Garamond,calibri,Arial,serif;
+}
+
+.main-content .published-poems{
+	margin-top: 60px;
+}
+
+.main-content .poem-title{
+	font-family: Garamond,Arial,serif;
+	font-size: 1.6em;
+	font-weight: 600;
+	color: rgb(42, 42, 42);
+}
+
+.main-content .poem-body{
+	margin-top: 40px;
+	line-height: 24px;
+	font-family: Garamond,Georgia,serif;
+	color: 	rgb(42, 42, 42);
+}
+
+.main-content .author-bio{
+	margin-top: 40px;
+	text-align: justify;
+	font-family: Garamond,Georgia,serif;	
+}
+
+.main-content .horizontal-line{
+	width: 	30%;
+	margin-left: 10%;
+	height: 3px;
+	background-color: black;
+	margin-top: 10px
+}
+
+/*Noise Submissions*/
+
+.submissions-wrapper{
+	position: relative;	
+	padding-left: 12%;
+	padding-right: 12%;
+	padding-top: 2.5em;
+	font-family: Garamond,Arial,serif;
+	padding-bottom: 30px;
+	min-height: 60vh;
+}
+
+.submissions-wrapper::after{
+	content: '';
+	height: 100%;
+	background-color: rgb(240, 235, 232);
+	width: 10%;
+	display: block;
+	position: absolute;	
+	right:0;
+	top: 0;
+	box-shadow: 1px 0px 5px black;
+}
+
+.submissions-wrapper::before{
+	content: '';
+	height: 100%;
+	background-color: rgb(240, 235, 232);
+	width: 10%;
+	display: block;
+	position: absolute;	
+	left: 0;
+	top: 0;
+	box-shadow: 0px 0px 5px black;
+}
+
+.submissions-wrapper .submissions-noise{
+	text-align:center;	
+	font-size: 	1.7em;
+}
+
+.submissions-wrapper .theme-exposition{
+	margin-top: 30px;
+	line-height: 24px;
+	text-align: justify;
+}
+
+.submissions-wrapper .submissions-guidelines-title{
+	margin-top: 30px;
+	text-align: center;	
+	font-size: 1.7em;
+}
+
+.submissions-wrapper .submissions-guidelines{
+	margin-top: 10px;
+	text-align: justify;
+}
+
+.submissions-wrapper .about-noise-title{
+	margin-top: 30px;
+	text-align: center;
+	font-size: 1.7em;
+}
+
+.submissions-wrapper .about-noise{
+	margin-top: 10px;
+}
+
+/*General Submissions*/
+
+.submissions-container{
+	position: relative;	
+	padding-left: 12%;
+	padding-right: 12%;
+	padding-top: 2.5em;
+	font-family: Garamond,Arial,serif;
+	min-height: 100vh;
+}
+
+.submissions-container::before{
+	content: '';
+	height: 100%;
+	background-color: rgb(240, 235, 232);
+	width: 10%;
+	display: block;
+	position: absolute;	
+	left: 0;
+	top: 0;
+	box-shadow: 0px 0px 5px black;
+}
+
+.submissions-container::after{
+	content: '';
+	height: 100%;
+	background-color: rgb(240, 235, 232);
+	width: 10%;
+	display: block;
+	position: absolute;	
+	right:0;
+	top: 0;
+	box-shadow: 1px 0px 5px black;
+
+}
+
+.submissions-container .general-guidelines{
+	text-align: center;	
+	font-family: Garamond,Arial,serif;
+	font-size: 	1.7em;
+	margin-bottom: 30px;
+}
+
+.submissions-container .general-submissions-body{
+	text-align: justify;	
+}
+
+/*Responsive design with media queries*/
+
+@media screen and (max-width: 880px){
+	.noise-title{
+		font-size: 1.7em;
+	}
+	.noise-wrapper .issue-number{
+		font-size: 1.6em;
+	}
+}
+
+@media screen and (max-width: 768px){
+	.noise-grid{
+		grid-template-columns: 1fr;
+	}
+}
+
+@media screen and (max-width: 676px){
+	.noise-wrapper::after, .noise-wrapper::before, .submissions-wrapper::after, .submissions-wrapper::before{
+		width: 6%;
+	}
+	.noise-wrapper, .submissions-wrapper{
+		padding-left: 8%;
+		padding-right: 8%;
+	}
+
+	.submissions-wrapper .submissions-noise{
+		font-size: 1.5em;
+	}
+	.submissions-wrapper .submissions-guidelines-title{
+		font-size: 1.5em;
+	}
+
+	.submissions-wrapper .about-noise-title{
+		font-size: 1.5em;
+	}
+}
+
+@media screen and (max-width: 576px){
+	.noise-wrapper::after, .noise-wrapper::before, .submissions-wrapper::after, .submissions-wrapper::before{
+		width: 4%;
+	}
+
+	.noise-title{
+		font-size: 1.5em;
+	}
+
+	.noise-wrapper .issue-number{
+		font-size: 1.4em;
+	}
+	
+
+	.submissions-wrapper .submissions-noise{
+		font-size: 1.4em;
+	}
+	.submissions-wrapper .submissions-guidelines-title{
+		font-size: 1.4em
+	}
+	.submissions-wrapper .about-noise-title{
+		font-size: 1.4em;
+	}
+}
+
+@media screen and (max-width: 428px){
+	.noise-wrapper::after, .noise-wrapper::before, .submissions-wrapper::after, .submissions-wrapper::before{
+		width: 2%;
+	}
+	.noise-wrapper, .submissions-wrapper{
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+	.noise-title{
+		font-size: 1.4em;
+	}
+	.noise-wrapper .issue-number{
+		font-size: 1.3em;
+	}
+	.main-content .poem-title{
+		font-size: 1.3em;
+	}
+	.author-list .content{
+		font-size: 1.3em;
+	}
+
+	.submissions-wrapper .submissions-noise{
+		font-size: 1.3em;
+	}
+	.submissions-wrapper .submissions-guidelines-title{
+		font-size: 1.3em;
+	}
+	.submissions-wrapper .about-noise-title{
+		font-size: 1.3em;
+	}
+}

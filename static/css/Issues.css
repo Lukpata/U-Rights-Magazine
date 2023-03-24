@@ -1,0 +1,413 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;	
+}
+
+/*Issues Home*/
+.issues-page{
+	padding: 2em;
+}
+
+
+.issues-page .title{
+	text-align: center;	
+	color:rgb(51, 51, 51);
+	font-family: Georgia, 'Times New Roman',Arial,serif;
+}
+
+.issues-grid{
+	display: grid;
+	grid-template-columns: repeat(5,minmax(100px, 170px));
+	padding: 3em 8%;
+	margin-top: 1em;
+	grid-gap: 40px;
+	box-shadow: 1px 2px 3px #222;
+	transform: 	rotateX(90deg);
+	animation-name: unincline;
+	animation-duration: 1s;
+	animation-delay: 2s;
+	animation-fill-mode: forwards;
+	animation-timing-function:ease-in-out;	
+}
+
+@keyframes unincline{
+	from{transform: rotateX(90deg);}
+	to{transform: rotateX(0deg);}
+}
+
+
+.issues-grid .issue{
+	padding: 1.2em 0.3em;
+	box-shadow: 0px 0px 5px black;
+	display: flex;	
+	flex-direction: column;	
+	align-items: center;
+	justify-content: space-between;	
+	gap:30px;
+	background-color: #ddd;
+}
+
+.issue-btn .btn{
+	background-color: black;
+	padding:0.3em;
+	border-radius: 3px;
+	box-shadow: 0px 0px 3px black;
+}
+
+.issue-btn .btn a{
+	color: white;
+	text-decoration: none;
+}
+
+.issue-image img{
+	width: 100%;
+	height: inherit;
+	background-color: grey;
+}
+
+.issue .issue-name{
+	font-family: 'Comic sans MS',Arial,sans;
+	font-size: 1.1em;
+}
+
+/*General Issues Content*/
+
+.general-is-wrapper{
+	position: relative;	
+	padding-left: 9em;
+	padding-right: 9em;
+	min-height: 50vh;
+	padding-bottom: 1.5em;
+}
+
+.published-pieces{
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 0.1em;
+}
+
+.general-is-wrapper:before{
+	content: '';
+	height: 100%;
+	background-color: rgb(240, 235, 232);
+	width: 10%;
+	display: block;
+	position: absolute;	
+	left: 0;
+	top: 0;
+	box-shadow: 0px 0px 5px black;
+}
+
+.general-is-wrapper:after{
+	content: '';
+	height: 100%;
+	background-color: rgb(240, 235, 232);
+	width: 10%;
+	display: block;
+	position: absolute;	
+	right:0;
+	top: 0;
+	box-shadow: 1px 0px 5px black;
+}
+
+.published-pieces .piece-title{
+	margin-top: 50px;
+	font-family: Georgia,Arial,serif;
+	font-size: 1.4em;
+	padding-bottom: 0.2em;
+}
+
+.published-pieces .piece-title a{
+	text-decoration: none;	
+	color: black;
+
+}
+.published-pieces .piece-title a:hover{
+	color: grey;
+}
+
+.published-pieces .author-name{
+	color: 	rgb(129, 183, 97);
+}
+
+
+.purple{
+	color: #d01714 !important;
+}
+
+.cover-design{
+	padding-left:2em;
+	padding-right:2em;
+	display: flex;	
+	justify-content: space-between;	
+	align-items: center;	
+}
+.cover-design .left-details{
+	text-align: left;	
+}
+
+.cover-design h3{
+	color:rgb(51, 51, 51);
+	margin-top: 50px;
+	font-family: Georgia,Arial,serif;
+	font-weight: 400;
+	font-size: 2em;
+	outline-color: rgb(51, 51, 51);
+}
+
+.cover-design h4{
+	padding-top: 0.7em;
+	font-family: Georgia,Arial,sans;
+	color: rgb(153, 153, 153);
+	font-size: 1.4em;
+}
+
+.cover-design .cover-line{
+	width: 150%;
+	color: black;
+	box-shadow: 2px 0px 2px blue;
+}
+
+#editor-note a{
+	color: rgb(51, 51, 51);
+	text-decoration: none;
+	font-family: Georgia,Arial,serif;
+	font-style: italic;	
+	font-size: 0.9em;
+}
+
+#editor-note a:hover{
+	color: grey;
+}
+
+/*This section is for the issue-detail*/
+
+
+.post-detail-grid{
+	display: grid;	
+	grid-template-columns: 300px 1fr;
+}
+
+.post-detail-grid .post-outline{
+	text-align: center;	
+	background-color:rgb(240, 235, 232);
+	min-height: 100vh;
+	padding-top: 10px;
+	box-shadow: 0px 0px 5px black;
+}
+
+.post-detail-grid .post-outline h4{
+	margin-top: 20px;
+	font-family: Georgia,Arial,serif;
+}
+
+.post-detail-grid .post-outline h4 a{
+	color: black;
+	text-decoration: none;	
+}
+
+.post-outline h4 a:hover{
+	color: grey;
+}
+
+.post-detail-grid .post-outline h5{
+	font-family: Georgia;
+	color: rgb(129, 183, 97);
+
+}
+
+.post-detail-grid .main-post{
+	padding: 2.3em  4em;
+}
+
+.post-detail-grid .outline-heading{
+	margin-top: 20px;
+	font-family: Garamond,Arial,serif;
+	color: rgb(51, 51, 51);
+}
+
+.post-detail-grid .design-line{
+	width: 35%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:40px; 	
+	height: 3px;
+}
+
+.main-post .issue-no{
+	font-family:'Open Sans',Arial,serif;
+	color: rgb(51, 51, 51);
+	font-size: 1.3em;
+	position: relative;	
+}
+
+.main-post .issue-no:before{
+	content: '';
+	width: 2px;
+	height: 38px;
+	background-color: black;
+	display: block;	
+	position: absolute;	
+	top:0;
+	left: -3px;
+	box-shadow: 0px 0px 2px grey;
+}
+
+.main-post .piece-title{
+	font-family: Georgia,Arial,serif;
+	font-size: 1.6em;
+	font-weight: 600;
+	margin-top: 1.5em;
+}
+
+.main-post .piece-author{
+	margin-top: 5px;
+	font-size:1.3em;
+	font-family: 'Times New Roman',serif;
+	color:  rgb(129, 183, 97);
+}
+
+.main-post .post-content{
+	margin-top: 30px;
+	line-height: 24px !important;
+	font-family: Garamond,Arial,serif;
+	font-size: 1.1rem;
+}
+
+.main-post .author-biog{
+	font-family: Garamond,Arial,sans;
+	text-align: justify;	
+}
+
+.main-post .pre-bio-line{
+	margin-top: 25px;
+	width: 40%;
+	height: 3px;
+	background-color: black;
+}
+
+/*About us page*/
+
+
+.general-is-wrapper .about-us{
+	font-family: Garamond,Arial,'Times	New	Roman';
+	padding-top: 0.1em;
+}
+
+.about-us .about-title{
+	margin-top: 40px;
+	text-align: center;	
+	font-size: 1.7em;
+}
+
+.about-us .about-content{
+	margin-top: 20px;
+	text-align: justify;	
+}
+
+
+/*Responsive Design with Media Queries*/
+@media screen and (max-width: 996px){
+	.post-detail-grid .main-post{
+		padding: 2.3em;
+	}
+}
+
+@media screen and (max-width: 880px){
+	.issues-grid{
+		grid-template-columns: repeat(4,minmax(100px, 170px));
+	}
+
+	/*General Issues Page*/
+	.cover-design{
+		flex-direction: column;
+	}
+	/*Issues Detail Page*/
+
+	.post-detail-grid{
+		grid-template-columns: 250px 1fr;
+	}
+}
+
+@media screen and (max-width: 768px){
+	.general-is-wrapper{
+		padding-right: 6em;
+		padding-left: 6em;
+	}
+
+	.post-detail-grid .main-post{
+		padding: 2.3em 1.5em;
+	}
+}
+
+@media screen and (max-width: 676px){
+	.issues-grid{
+		grid-template-columns: 	repeat(3,1fr);
+	}
+
+	.cover-design{
+		padding-left: 1em;
+		padding-right:1em;
+	}
+
+	.post-detail-grid{
+		display: block;
+	}
+	.post-detail-grid .post-outline{
+		display: none;	
+	}
+
+	.post-detail-grid .main-post{
+		padding: 2.3em 1em;
+	}
+}
+
+@media screen and (max-width: 500px){
+	.issues-grid{
+		grid-template-columns: 	repeat(2,1fr);
+	}
+}
+
+@media screen and (max-width: 428px){
+	.general-is-wrapper{
+		padding-left: 3.1em;
+		padding-right: 3.1em;
+	}
+
+	.issues-grid{
+		grid-column-gap: 15px;
+	}
+	.issue-btn .btn{
+		font-size: 0.9em;
+		margin-top: 0.5em;
+	}
+	/*General Issues Page*/
+	.published-pieces .piece-title{
+		font-size: 1.2em;
+	}
+
+	.cover-design .cover-line{
+		width: 120%;
+	}
+
+	.cover-design h4{
+		font-size: 1.2rem;
+	}
+
+	#editor-note a{
+		font-size: 0.8em;
+	}
+
+	.post-detail-grid .main-post{
+		padding: 2.3em 0.8em;
+	}
+
+	/*Issues Detail Page*/
+	.main-post .piece-title{
+		font-size: 1.4em;
+	}
+
+}
+

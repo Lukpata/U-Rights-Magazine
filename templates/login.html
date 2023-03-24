@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock  %}
+
+{% block content %}
+<div class="login-body">
+	<div class="overall-wrapper">	
+		<div class="submit-wrapper">	
+			<form action="" class="submit-form" method='POST'>
+				{% csrf_token %}	
+				<h2 class="welcome">Welcome back! </h2>
+				
+				<div class="user-name">	
+					<input type="text" name="username" placeholder="Username">
+				</div>
+				<div class="user-name">	
+					<input type="password" name="password" placeholder="Password">
+				</div>
+
+				{% if messages %}
+
+				{% for message in messages %}
+				<p style="color:red;text-align:center;margin-top:0.6rem">{{message}}</p>
+				{% endfor %}
+				
+				{% endif %}
+				
+				<div class="button">	
+					<button class="btn">Login</button>
+				</div>
+				<div class="register_or_password">
+					<small><a href="{% url 'bookstore:register' %}">Don't have an account?</a></small>
+					<small><a href="{% url 'password_reset' %}">Forgot password?</a></small>	
+				</div>
+			</form>
+		</div>
+		<div class="submit-anotation">	
+			<img src="{% static 'images/U-Rights New Logo.png' %}">
+			<h4>Powered by U-Rights</h4>
+		</div>	
+</div>
+</div>
+{% endblock  %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}News{% endblock  %}
+
+{% block content %}
+	<div class="news-wrapper">	
+		{% for news in news_items %}
+		<h3 class="news-title">{{news.caption}} |<span>{{news.date}}</span></h3>
+		<div class="news-content">{{news.content|safe|truncatewords:30}}</div>
+		<a href="{% url 'home:news_detail' slug=news.slug %}">Read More</a>
+		{% endfor %}
+	</div>
+{% endblock  %}

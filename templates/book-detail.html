@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Book Details{% endblock  %}
+{% block content %}
+	<div class="bookstore-detail">
+		
+			<div class="book">
+				<div class="image">
+					<img src="{{book.book_cover.url}}"/>
+				</div>
+				<div class="content">
+					<h3 class="book-title">{{book.book_title}}</h3>
+					<h4 class="book-author"><span class="bold-text">Author:</span> {{book.author}}</h4>
+					<h4 class="publisher"><span class="bold-text">Publisher:</span> {{book.publisher}}</h4>
+					<h4 class="info"><span class="bold-text">Year:</span> {{book.year}}</h4>
+					<h4 class="info"><span class="bold-text">Pages:</span> {{book.pages}}</h4>
+					<h4 class="info"><span class="bold-text">Genre:</span> {{book.category}}</h4>
+					<h4 class="info"><span class="bold-text">Price:</span> ${{book.price}}.00</h4>
+					{% if book.plan == "paid" %}
+					<h4 class="contact-author"><a href="{% url 'bookstore:order_book' slug=book.slug %}">Contact Author</a></h4>
+					{% else %}
+					<h4 class="contact-author"><a href="{{book.url}}">Download</a></h4>
+					{% endif %}
+				</div>
+			</div>
+
+			<div class="excerpt">
+				 {{book.excerpt|safe}}
+			</div>
+	</div>
+{% endblock  %}

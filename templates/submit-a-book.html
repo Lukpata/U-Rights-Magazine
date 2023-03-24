@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}Submit a Book{% endblock  %}
+{% block content %}
+	<div class="overall-wrapper">	
+		<div class="submit-wrapper">	
+			<form action="" class="submit-form" name="submitBookForm" method='POST' enctype='multipart/form-data'>	
+				{% csrf_token %}
+				<h4 class="welcome">Welcome, <span style="font-style:italic">{{user.username.title}}</span>!</h4>
+				<div class="user-name">	
+					<input type="text" name="bookTitle" placeholder="Book Title" id="book-title">
+					<small></small>
+				</div>
+				<div class="user-name">	
+					<input type="text" name="publisher" placeholder="Publisher" id="publisher">
+					<small></small>
+				</div>
+				
+				<div class="user-name">	
+					<input type="text" name="isbn" placeholder="ISBN (if any)" id="isbn">
+				</div>
+				<div class="user-name">	
+					<input type="text" name="author" placeholder="Author (s)" id="author">
+					<small></small>
+				</div>
+				<div class="user-name">	
+					<select name='category'>
+						<option>Poetry</option>
+						<option>Fiction</option>
+						<option>Non-fiction</option>
+						<option>Other</option>
+					</select>
+				</div>
+				<div class="user-name">	
+					<input type="text" name="year" placeholder="Year of Publication" id="year">
+					<small></small>
+				</div>
+
+				<div class="user-name">	
+					<input type="number" name="pages" placeholder="Number of Pages" min="1" id="pages">
+					<small></small>
+				</div>
+				<div class="plan">
+					<div>
+						<input type="radio" name="plan" id="free" value='free'><label>This book is free</label>
+					</div>
+					<div class="paid">
+						<input type="radio" name="plan" checked="checked" id="not-free" value='paid'><label>This book is not free</label>
+					</div>
+				</div>
+				<div class="user-name"  id="price">	
+					<input type="number" name="price" placeholder="Price of Book in US Dollars" min="1" id="price-input">
+					<small></small>
+				</div>
+				<div class="user-name hidden-controls" id="url">	
+					<input type="url" name="url" placeholder="Link to Downloadable File"   id="urlv">
+				</div>
+
+				<div class="brief-bio">	
+					<textarea class="bio" placeholder="Excerpt or sample from book. This can be a single poem or page that can attract someone to place an order for your book." id="bio" rows="10" name="bio"></textarea>
+				</div>
+				<div class="user-name bookcover-upload">	
+					<label>Upload book cover</label>
+					<input type="file" name="file"  class="upload" id="file" accept="">
+					<small></small>
+				</div>
+				{% if messages %}
+				{% for message in messages  %}
+				<p style='color:red'>{{message}}</p>
+				{% endfor %}
+				{% endif %}
+				
+				<div class="button">	
+					<button class="btn">Submit Book</button>
+				</div>
+				
+				
+			</form>
+		</div>
+		<div class="submit-anotation">	
+			<img src="{% static 'images/U-Rights New Logo.png' %}">
+			<h4>Powered by U-Rights</h4>
+		</div>	
+</div>
+
+
+<script>
+    tinymce.init({
+      selector: 'textarea',
+      width:'100%',
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+      mergetags_list: [
+        { value: 'First.Name', title: 'First Name' },
+        { value: 'Email', title: 'Email' },
+      ]
+    });
+  </script>
+
+  {% endblock  %}
+
+  {% block script %}
+  <script src="{% static 'javascript/submitBook.js' %}"></script>
+  {% endblock  %}

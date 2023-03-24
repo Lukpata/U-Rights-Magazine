@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>U-Rights Magazine-{% block title %}{% endblock  %}</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+	<script src="https://kit.fontawesome.com/db8ed7160c.js" crossorigin="anonymous"></script>
+	<script src="{% static 'javascript/forms.js' %}"></script>
+	<script src="https://cdn.tiny.cloud/1/iqq4it7yglodsd1a1mvmhht1gvbzghmst73s27497mowauqn/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/generic.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/issues.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/forms.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/noise-home.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bookstore.css' %}">
+</head>
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="top-nav">
+				<div class="donate">
+					<p class="donate-btn"><a href="#">Donate to this project</a></p> 
+				</div>
+				 
+				 	<form class="search-form" name="search_form" id="search-form" action='{% url 'home:search' %}'>
+						<input type="text" name="search_value" class="search-input" id="search-form-input">
+						<button name="search" class="btn"><span class="material-symbols-outlined">search</span></button>
+					</form>
+
+					<div class="icons">	
+					 	<a href="#" class="show-search-form"><span class="material-symbols-outlined ma-icons search">search</span>
+					 	<span class="material-symbols-outlined ma-icons close-icon dont-show">close</span>
+					 	</a>
+					 	<a href="#"><span class="material-symbols-outlined ma-icons call">call</span></a>
+					 	<a href="#"><span class="material-symbols-outlined ma-icons mail">mail</span></a>
+				 </div>
+
+			</div>
+
+			<div class="main-header">
+				<div class="site-logo">
+					<a href="{% url 'home:home_page' %}"><img src="{% static 'images/U-Rights New Logo.png' %}"/></a>
+				</div>
+				<label class="hamburger"></label>
+				
+					<ul class="main-menu">
+						<li class="has-dropdown"><a href="#" class="main-menu-li">About<span class="arrow"></span></a>
+							<ul class="submenu">
+								<li><a href="{% url 'home:about' %}" class="main-menu-li">About us</a></li>
+								<li><a href="{% url 'home:masthead' %}" class="main-menu-li">Masthead</a></li>
+								<li><a href="{% url 'home:contact' %}" class="main-menu-li">Contact us</a></li>
+								<li><a href="{% url 'home:our_poets' %}" class="main-menu-li">Our poets</a></li>
+								<li><a href="{% url 'home:news' %}" class="main-menu-li">News</a></li>
+							</ul>
+						</li>
+						<li><a href="{% url 'home:issues' %}" class="main-menu-li">Issues</a></li>
+						<li><a href="{% url 'home:submissions' %}" class="main-menu-li">Submissions</a></li>
+						<li class="has-dropdown"><a href="#" class="main-menu-li">Archive<span class="arrow"></span></a>
+							<ul class="submenu">
+								{% for category in categories %}
+								<li><a href="{% url 'home:archive' category=category.category_name %}" class="main-menu-li">{{category.category_name}}</a></li>
+								{% endfor %}
+							</ul>
+						</li>
+						<li  class="has-dropdown"><a href="#" class="main-menu-li">Noise<span class="arrow"></a>
+							<ul class="submenu">
+								<li><a href="{% url 'noise:noise_home' %}" class="main-menu-li">Home</a></li>
+								<li><a href="{% url 'noise:noise_submit' %}" class="main-menu-li">Submissions</a></li>
+							</ul>
+						</li>
+						<li><a href="{% url 'bookstore:bookstore' %}" class="main-menu-li">Bookstore</a></li>
+					</ul>
+			</div>
+			
+		</header>
+        {% block content  %} 
+        
+        {% endblock  %}
+		
+		<footer class="footer">
+			<div class="footer-left">	
+				<div class="copyright">
+					<p>&#169;<span>U-Rights Magazine</span>. All rights reserved. All the material published on this website should not be reproduced or republished without prior written consent. Copyright to the material on this website is held by U-Rights Magazine and the contributors. Any violation of this copyright will be subject to legal proceedings.</p>
+				</div>
+				<div class="social-icons">
+					<a href="#"><i class="fa-brands fa-facebook"></i></a>
+					<a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+					<a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+					<a href="#"><i class="fa-brands fa-youtube"></i></a>
+				</div>
+			</div>
+
+			<div class="right-subscribe">	
+				<p class="newsletter-title">Subsribe to our newsletter</p>
+				<form class="news-letter" method='POST' action={% url 'home:newsletter' %}>
+					{% csrf_token %}
+					<div>	
+						<input type="text" name="full_name" placeholder="Full Name" required>
+					</div>
+
+					<div>
+					<input type="email" name="email" placeholder="Email">
+					</div>
+
+					<div>	
+						<button name='subscribe-btn' class="subscribe-btn">Subscribe</button>
+					</div>
+					{% if messages %}
+					{% for message in messages %}
+					<p style="margin-top:10px">{{message}}</p>
+					{% endfor %}
+					{% endif %}
+				</form>
+			</div>
+		</footer>
+		
+	</div>
+<script src="{% static 'javascript/index.js' %}"></script>
+{% block script %}
+{% endblock  %}
+</body>
+</html>

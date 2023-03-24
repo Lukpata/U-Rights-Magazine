@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}Search Results{% endblock  %}
+
+{% block content %}
+{% if search_value %}
+	<div class="general-is-wrapper">	
+		<div class="published-pieces">
+			<div class="cover-design">
+				<div class="left-details">	
+					<h3 style="font-size:1.5rem">You searched <span style="color:brown">{{search_value}}</span></h3>
+					<h4>{{piece_count}} result(s) found</h4>
+					<hr class="cover-line">
+				</div>
+
+				<div class="editor-note">
+					<h3 id="editor-note"><a href="{% url 'home:issues' %}">Go to Issues</a></h3>	
+				</div>		
+
+			</div>	
+			{% for piece in search_results %}
+			<h3 class="piece-title"><a href="{% url 'home:piece_detail' slug=piece.slug %}">{{piece.title}}</a></h3>
+			<h3 class="author-name">{{piece.author}}</h3>
+			{% endfor %}
+
+		</div>
+	</div>
+    {% else %}
+    <div style="height:70vh;padding:3rem">
+    <h2>This an unauthorized page</h2>
+    </div>
+    {% endif %}
+{% endblock  %}

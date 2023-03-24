@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Archive{% endblock  %}
+
+{% block content %}
+	<div class="general-is-wrapper">	
+		<div class="published-pieces">
+			<div class="cover-design">
+				<div class="left-details">	
+					<h3>Archive</h3>
+					<h4>Category: {{category}}</h4>
+					<hr class="cover-line">
+				</div>
+
+				<div class="editor-note">
+					<h3 id="editor-note"><a href="{% url 'home:issues' %}">Go to Issues</a></h3>	
+				</div>		
+
+			</div>	
+			{% for piece in pieces %}
+			<h3 class="piece-title"><a href="{% url 'home:piece_detail' slug=piece.slug %}">{{piece.title}}</a></h3>
+			<h3 class="author-name">{{piece.author}}</h3>
+			{% endfor %}
+
+		</div>
+	</div>
+{% endblock  %}

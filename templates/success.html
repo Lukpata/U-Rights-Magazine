@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title  %}Success{% endblock %}
+
+{% block content %}
+<div class="success-message">
+{% if page == 'register' %}
+<p>Registration successful. You can now <a href="{% url 'bookstore:login' %}">login</a> to submit a book</p>
+{% elif page == 'submit' %} 
+<p>The  book <strong>{{book_title}}</strong> 
+    has been submitted successfully. It'll be uploaded to our bookstore upon approval.</p>
+<p><a href="{% url 'bookstore:bookstore' %}" class='return'>Return to bookstore</a></p>
+{% elif page == 'order' %}
+<p>Your message has been sent successfully. The author (s) will get back to you soon. </p>
+<p><a href="{% url 'bookstore:bookstore' %}" class='return'>Return to bookstore</a></p> 
+{% elif page == 'contact' %}
+<p>Your message has been sent successfully. We will get back to you soon. </p>
+{% endif %}
+</div>
+{% endblock  %}

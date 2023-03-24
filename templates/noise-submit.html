@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Noise Submissions{% endblock  %}
+{% block content %}
+	<div class="overall-wrapper">	
+		<div class="submit-wrapper">	
+			<form action="" class="submit-form" name="submit-form">	
+				<h2 class="welcome">Fill the Form to Submit</h2>
+				<div class="user-name">	
+					<input type="text" name="firstName" placeholder="First Name" id="first-name">
+					<small></small>
+				</div>
+				<div class="user-name">	
+					<input type="text" name="lastName" placeholder="Last Name" id="last-name">
+					<small></small>
+				</div>
+				<div class="user-name">	
+					<input type="email" name="email" placeholder="Email Address" id="email">
+					<small></small>
+				</div>
+				<div class="brief-bio">	
+					<textarea class="bio" placeholder="Your third person bio" id="bio" rows="10" name="bio"></textarea>
+					<small></small>
+				</div>
+				<div class="user-name">	
+					<input type="file" name="file" placeholder="Last Name" value="Choose File" accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" id="file">
+					<small></small>
+				</div>
+				<div class="button">	
+					<button class="btn">submit</button>
+				</div>
+				
+				
+			</form>
+		</div>
+		<div class="submit-anotation">	
+			<img src="{% static 'images/U-Rights New Logo.png' %}">
+			<h4>Powered by U-Rights</h4>
+		</div>	
+</div>
+
+
+<script>
+    tinymce.init({
+      selector: 'textarea',
+      width:'100%',
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+      mergetags_list: [
+        { value: 'First.Name', title: 'First Name' },
+        { value: 'Email', title: 'Email' },
+      ]
+    });
+  </script>
+
+  {% endblock  %}
+
+  {% block script %}
+  	<script src="{% static 'javascript/submitNoise.js' %}"></script>
+  {% endblock  %}

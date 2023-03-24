@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Home{% endblock  %}
+{% block content %}
+		<main class="main-body">
+			<section class="background">
+				<div class="showcase">
+					<div class="slider">
+						{% for slider in sliders %}
+						<img src="{{slider.slider_image.url}}" class="slider-image" />
+						<p class="snippets">{{slider.paragraph}}</p>
+						{% endfor %}
+
+						<span class="material-symbols-outlined next">east</span>
+						<span class="material-symbols-outlined previous">west</span>
+
+					</div>
+					
+					
+				</div>
+			</section>
+
+			<section class="our-genres">
+				<div class="grid-container">
+					<div class="before-design"></div>
+					<div class="publish">
+						<h2><span class="bottom-design">What We Publish</span></h2>
+					</div>
+					<div class="after-design"></div>
+				</div>
+				
+				<div class="What-we-publish">
+					{% for category in featured_cats %}
+					<div class="{{category.category_name.lower}}" style="background-image:url({{category.category_cover.url}})">
+						<div class="circle">{{forloop.counter}}</div>
+						<p class="genre">{{category.category_name}}</p>
+						<p class="explore"><a href="{% url 'home:archive' category=category.category_name %}">Explore</a></p>
+					</div>
+					{% endfor %}
+				</div>
+			</section>
+
+			<section class="featured-works">
+				<div class="grid-container">
+					<div class="before-design"></div>
+					<div class="publish">
+						<h2><span class="bottom-design">Featured Works</span></h2>
+					</div>
+					<div class="after-design"></div>
+				</div>
+
+				<div class="featured">	
+				{% for piece in featured_pieces %}
+					<div class="featured-w">
+						<h2 class="featured-title">{{piece.title}} | <span>{{piece.issue.issue_title}}</span></h2>
+						<h2 class="featured-author">{{piece.author}}</h2>
+						<p class="work-body">{{piece.content|safe|truncatewords:30}}</p>	
+						<p class="read-more"><a href="{% url 'home:piece_detail' slug=piece.slug %}">Read More</a></p>
+					</div>
+				{% endfor %}
+				</div>
+
+			</section>
+			<section class="our-writers">
+				<div class="grid-container">
+					<div class="before-design"></div>
+					<div class="publish">
+						<h2><span class="bottom-design">Our Writers</span></h2>
+					</div>
+					<div class="after-design"></div>
+				</div>
+				<div class="writers-grid">	
+					<div class="writers-flex-container">
+						{% for poet in featured_poets %}
+						<div class="writer">
+							<div class="writer-image">
+								<img src="{{poet.photo.url}}">
+							</div>
+							<p class="writer-name">{{poet.poet_name}}</p>
+						</div>
+						{% endfor %}
+					</div>
+					<p class="view-more-writers"><a href="{% url 'home:our_poets' %}">View More</a></p>
+				</div>
+			</section>
+
+			<section class="partnerships">	
+				<div class="grid-container">
+					<div class="before-design"></div>
+					<div class="publish">
+						<h2><span class="bottom-design">Our Friends</span></h2>
+					</div>
+					<div class="after-design"></div>
+				</div>
+
+				<div class="partners">
+					<div class="partner-cover">
+						<div class="duotrope partner">
+							<a href="#"><img src="{% static 'images/duotrope.png' %}"></a>
+						</div>
+					</div>
+
+					<div class="partner-cover">
+						<div class="pangolin partner">
+							<a href="#"><img src="{% static 'images/Pangolin.jpg' %}"></a>
+						</div>
+						<p class="partner-name">Pangolin Review</p>
+					</div>
+
+					<div class="partner-cover">
+						<div class="stripes partner">
+							<a href="#"><img src="{% static 'images/StripesMagazine.jpeg' %}"></a>
+						</div>
+						<p class="partner-name">Stripes Magazine</p>
+					</div>
+
+					<div class="partner-cover">
+						<div class="wordhoard partner">
+							<a href="#"><img src="{% static 'images/wordhoard.jpg' %}"/></a>
+						</div>
+						<p class="partner-name">WordHoard Press</p>
+					</div>
+				</div>
+			</section>
+			
+		</main>
+{% endblock  %}
+
+{% block script %}
+	<script src="{% static 'javascript/main.js' %}"></script>
+{% endblock  %}

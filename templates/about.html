@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+	
+{% block title %}About{% endblock  %}
+{% block content %}
+	<div class="general-is-wrapper">	
+		{% for item in about_items %}
+		<div class="about-us">
+			<h2 class="about-title">{{item.heading}}</h2>
+				<p class="about-content">{{item.content|safe}}</p>	
+		</div>
+		{% endfor %}
+	</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Issue Details{% endblock  %}
+
+{% block content  %}
+	<div class="post-detail-grid">	
+		<div class="post-outline">
+			<h2 class="outline-heading">Issue Content</h2>
+			<hr class="design-line">
+
+		{% for item in issue %}
+		<h4><a href="{% url 'home:piece_detail' slug=item.slug %}" class="{% if item.pk == piece.pk %}purple{% endif %}">{{item.title}}</a></h4>	
+		<h5>{{item.author}}</h5>
+		{% endfor %}
+		</div>
+
+		<div class="main-post">	
+
+			<h3 class="issue-no">{{piece.issue.issue_title}}</h3>
+
+			<h3 class="piece-title">{{piece.title}}</h3>
+			<h4 class="piece-author">{{piece.author}}</h4>
+			<div class="post-content">{{piece.content|safe}}</div>
+
+			<hr class="pre-bio-line">
+			<div class="author-biog">{{piece.author_bio|safe}}</div>
+					
+	
+		</div>
+		
+	</div>
+	{% endblock  %}

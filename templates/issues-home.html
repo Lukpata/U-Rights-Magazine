@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}Issues{% endblock  %}
+
+{% block content %}
+<div class="issues-page">	
+	<div class="title">	
+		<h2>Official Issues Since October 2019</h2>
+	</div>	
+	<div class="issues-grid">
+
+		{% for issue in issue_items %}
+		<div class="issue">
+			<div class="issue-image">
+				<img src="{{issue.cover.url}}"/>
+			</div>
+			<p class="issue-name">{{issue.issue_title}}</p>
+			<div class="issue-btn">
+				<p class="btn"><a href="{% url 'home:issue_content' slug=issue.slug %}">Read Now</a></p>
+			</div>
+		</div>
+		{% endfor %}
+
+	</div>
+</div>
+{% endblock  %}

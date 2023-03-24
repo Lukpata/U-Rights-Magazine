@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Noise{% endblock  %}
+{% block content %}
+	<div class="noise-wrapper">	
+		<h1 class="noise-title"><span class="first-two">No</span><span class="second-three">ise</span>: The <span class="bi">Bi</span>partite <span class="bi">An</span>thology</h1>
+
+		<h2 class="issue-number">{{issue.issue_number}}:  <span> {{issue.issue_title}}</span></h2>
+		<p class="noise-date">{{issue.publication_date|date:"F j, Y"}} by U-Rights Magazine</p>
+		<div class="noise-grid">
+			<div class="main-content">
+				<div class="noise-issue-image" style="background-image:url({{issue.issue_cover.url}})">
+				</div>
+				<small class="attribution">Art by {{issue.cover_anotation}}</small>
+				<div class="author-list">
+					<h2 class="content">Content</h2>
+				<p class="poems">
+					{% for poem in poems %}
+					<a href="#poem{{poem.pk}}">{{poem.author}}</a>
+					|
+					{% endfor %}
+				</p>
+
+				<div class="published-poems">
+
+				{% for poem in poems %}
+				<h4 class="poem-title" id="poem{{poem.pk}}">{{poem.title}}</h4>	
+				<div class="poem-body">	
+					{{poem.content|safe}}
+				</div>
+
+				<div class="author-bio">	
+					{{poem.author_bio|safe}}	
+				</div>
+				<hr class="horizontal-line">
+				<br>
+				<br>
+				<br>			
+				{% endfor %}
+
+				</div>	
+			</div>
+			</div>
+			<div class="issues-outline">
+				<div class="noise-issues">
+					<h4>Submissions</h4>
+					<ul>
+						<li><a href="{% url 'noise:noise_submit' %}">Submit</a></li>
+					</ul>
+					<h4 class="recent">Recent Issues</h4>
+					<ul>
+						{% for issue in recent_issues %}
+						<li><a href="{% url 'noise:issue' slug=issue.slug %}">{{issue.issue_number}}</a></li>
+						{% empty %}
+						<li>No recent issues published</li>
+						{% endfor %}
+					</ul>
+
+					<h4 class="all-issues">All Issues</h4>
+					<ul>
+						{% for issue in all_issues %}
+						<li><a href="{% url 'noise:issue' slug=issue.slug %}">{{issue.issue_number}}</a></li>
+						{% empty %}
+						<li>No issue has been published</li>
+						{% endfor %}
+					</ul>
+					
+				</div>
+				
+			</div>
+		</div>
+
+	</div>	
+	{% endblock  %}

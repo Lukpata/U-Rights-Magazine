@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}Order a book{% endblock  %}
+
+{% block content %}
+<form id="order-form" action='' method='POST'>
+	{% csrf_token %}
+	<div class="order-form-title">	
+		<p class="order-form-header">Complete the form to contact {{book.author}}</p>
+	</div>	
+
+	<div class="order-form-clear">
+		<div class="col-one-i">
+			<label>Author(s)</label>
+		</div>
+		<div class="col-two-ii">
+			<input type="text" name="author" disabled value="{{book.author}}">
+		</div>
+	</div>
+
+		<div class="order-form-clear">
+			<div class="col-one-i">
+				<label>Book</label>
+			</div>
+
+			<div class="col-two-ii">
+				<input type="text" name="book" disabled value="{{book.book_title}}">
+			</div>
+		</div>
+
+		<div class="order-form-clear">
+			<div class="col-one-i">
+				<label>Publisher</label>
+			</div>
+
+			<div class="col-two-ii">
+				<input type="text" name="publisher" disabled value="{{book.publisher}}">
+			</div>
+		</div>
+
+
+		<div class="order-form-clear">
+			<div class="col-one-i">
+				<label>No. of Copies</label>
+			</div>
+
+			<div class="col-two-ii">
+				<input type="number" name="copies" required>
+			</div>
+		</div>
+
+		<div class="order-form-clear">
+			<div class="col-one-i">
+				<label>Name</label>
+			</div>
+			<div class="col-two-ii">
+				<input type="text" name="fullName" >
+			</div>
+
+		</div>
+
+
+		<div class="order-form-clear">
+			<div class="col-one-i">
+				<label>Email</label>
+			</div>
+			<div class="col-two-ii">
+				<input type="email" name="email" >
+			</div>
+
+		</div>
+
+
+		<div class="order-form-clear">
+			<div class="col-one-i">
+				<label>Message</label>
+			</div>
+			<div class="col-two-ii">
+				<textarea cols="50" rows="10" name="message" required></textarea>
+			</div>
+			{% if messages  %}
+			{% for message in messages %}
+			<p style='color:red'>{{message}}</p>
+			{% endfor %}
+			{% endif %}
+		</div>	
+
+		<div class="btn-order-form">	
+			<button class="order-btn">Send Message</button>
+		</div>	
+
+</form>
+{% endblock  %}

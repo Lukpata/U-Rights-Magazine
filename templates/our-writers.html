@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}Our Writers{% endblock  %}
+
+{% block content %}
+	<div class="main-writer-page">
+		{% for issue in issues %}
+		<h3 class="issue-batch"><span>{{issue.issue_title}}</span></h3>
+		<div class="writerrs-flex-container">
+
+			{% for poet in poets %}
+			{% if poet.issue.issue_title == issue.issue_title %}
+			<div class="writerr">
+				<div class="writer-image">
+					<img src="{{poet.photo.url}}">
+				</div>
+				<p class="writer-name">{{poet.poet_name}}</p>
+			</div>
+			{% endif %}
+			{% endfor %}
+
+		</div>
+		{% endfor %}
+
+	</div>
+{% endblock  %}

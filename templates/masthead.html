@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Masthead{% endblock  %}
+
+{% block content %}
+	<div class="mast-container">
+
+		{% for editor in masthead_items %}
+		<div class="editor">
+			<div class="image">
+				<img src="{{editor.photo.url}}">
+			</div>
+			<div class="bio">
+				<h2>{{editor.full_name}}</h2>
+				<p>{{editor.editor_bio|safe}}</p>
+			</div>
+		</div>	
+		{% endfor %}
+	</div>
+{% endblock %}

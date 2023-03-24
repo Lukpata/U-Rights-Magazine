@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}Issue Content{% endblock  %}
+
+{% block content %}
+	<div class="general-is-wrapper">	
+		<div class="published-pieces">
+			<div class="cover-design">
+				<div class="left-details">	
+					<h3>{{issue.issue_title}}</h3>
+					<h4>{{issue.publication_date|date:"F, Y"}}</h4>
+					<hr class="cover-line">
+				</div>
+
+				<div class="editor-note">
+					<h3 id="editor-note"><a href="#">Editor's Note</a></h3>	
+				</div>		
+
+			</div>	
+			{% for piece in pieces %}
+			<h3 class="piece-title"><a href="{% url 'home:piece_detail' slug=piece.slug %}">{{piece.title}}</a></h3>
+			<h3 class="author-name">{{piece.author}}</h3>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock  %}

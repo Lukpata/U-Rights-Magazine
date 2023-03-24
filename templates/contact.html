@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact{% endblock  %}
+{% block  content %}
+<form class="contact-form" name="contactForm" action='' method='POST'>
+	{% csrf_token %}
+	<div class="contact">	
+		<h3>Your feedback is important to us!</h3>
+	</div>	
+
+		<div class="item">
+			<input type="text" name="f_name" placeholder="Full name" id="fullName">
+			<small></small>
+		</div>
+
+		<div class="item">
+			<input type="email" name="email" placeholder="Email" id="email">
+			<small></small>
+		</div>
+		
+		<div class="item">
+			<textarea cols="50" rows="10" placeholder="Message" name="message" id="message"></textarea>
+			<small></small>
+		</div>
+		{% if messages %}
+		{% for message in messages %}
+		<p style='color:red'>{{message}}</p>
+		{% endfor %}
+		{% endif %}
+
+		<div class="btn">	
+			<input type="submit" name="contact" class="bt" value="Send message">
+			<small></small>
+		</div>	
+</form>
+{% endblock  %}
+
+
+{% block script %}
+	<script src="{% static 'javascript/contact.js' %}"></script>
+{% endblock  %}

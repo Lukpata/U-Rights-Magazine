@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Noise Submissions{% endblock  %}
+
+{% block content %}
+	<div class="submissions-wrapper">
+		{% for submission in submissions %}
+		<h3 class="submissions-noise">Submissions: {{submission.issue_title}}</h3>
+		<div class="theme-exposition">{{submission.theme_exposition|safe}}</div>
+		
+
+		<h3 class="submissions-guidelines-title">Submissions Guidelines</h3>
+		<div class="submissions-guidelines">{{submission.guidelines|safe}}</div>
+		<h3 class="about-noise-title">About Noise</h3>
+		<div class="about-noise">{{submission.about_noise|safe}}</div>
+		{% endfor %}
+	</div>
+	{% endblock  %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Submissions{% endblock  %}
+{% block content %}
+	<div class="submissions-container">
+		{% for submission in submission_items %}
+		<h3 class="general-guidelines">{{submission.heading}}</h3>
+		<div class="general-submissions-body">{{submission.content|safe}}</div>	
+		{% endfor %}	
+	</div>
+{% endblock  %}

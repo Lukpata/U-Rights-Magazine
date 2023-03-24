@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Bookstore{% endblock  %}
+{% block content %}
+	<div class="bookstore-wrapper">	
+		<div class="left">
+			<p class="submit-a-book home"><a href="{% url 'bookstore:bookstore' %}">Home</a></p>
+			<p class="submit-a-book subscription"><a href="{% url 'bookstore:submit' %}">Submit a book</a></p>
+			<p class="submit-a-book policy"><a href="#">Our policy</a></p>
+
+			{% if user.is_authenticated  %}
+			<p class="submit-a-book  logout"><a href="{% url 'bookstore:logout' %}">Logout</a> <span style="color:#EB6721;font-style:italic">{{user.username.title}}</span></p>
+
+			{% else %}
+			<p class="submit-a-book  login"><a href="{% url 'bookstore:login' %}">login</a></p>
+			<p class="submit-a-book  register"><a href="{% url 'bookstore:register' %}">Register</a></p>
+			{% endif %}
+
+			<p class="submit-a-book mail"><a href="#">Drop a special message</a></p>
+			
+		</div>
+		<div class="right">
+			<form class="book-search">
+				<input type="text" name="book_search" placeholder="Search for a book" value={{search_value}}>
+				<button>Search</button>
+			</form>
+
+			{% for book in books %}
+			<div class="book">
+				<div class="image">
+					<img src="{{book.book_cover.url}}"/>
+				</div>
+				<div class="content">
+					<div class="book-name-author">	
+						<h3 class="book-title">{{book.book_title}}</h3>
+						<h4 class="book-author">{{book.author}}</h4>
+					</div>
+					<h4 class="book-price">${{book.price}}.00</h4>
+					<h4 class="preview"><a href="{% url 'bookstore:book_info' slug=book.slug %}">Preview & Details</a></h4>
+					{% if book.plan == 'free' %}
+					<h4 class="order"><a href="{{book.url}}">Download</a></h4>
+					{% else %}
+					<h4 class="order"><a href="{% url 'bookstore:order_book' slug=book.slug %}">Contact Author</a></h4>
+					{% endif %}
+				</div>
+				
+			</div>
+			<hr class="book-line">
+			{% endfor %}
+
+		</div>
+	</div>
+{% endblock  %}
